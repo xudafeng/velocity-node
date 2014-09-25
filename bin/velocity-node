@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+/* ================================================================
+ * velocity-node by xdf(xudafeng[at]126.com)
+ *
+ * first created at : Wed Sep 24 2014 18:18:16 GMT+0800 (CST)
+ *
+ * ================================================================
+ * Copyright 2013 xdf
+ *
+ * Licensed under the MIT License
+ * You may not use this file except in compliance with the License.
+ *
+ * ================================================================ */
+
+'use strict';
+
+require('colorx');
+var program = require('commander');
+var pkg = require('../package.json');
+var VelocityNode = require('../');
+
+program
+  .option('-v, --version', 'output version infomation')
+  .on('version', function() {
+    console.log('\n  ' + pkg.version.blue + '\n');
+    process.exit(0);
+  })
+  .usage('[data] [template]')
+  .parse(process.argv);
+
+if (program.args.length === 2) {
+  new VelocityNode({
+    data: program.args[0],
+    template: program.args[1]
+  });
+} else {
+  console.log('\n  Arguments Error.'.red);
+  program.help();
+  process.exit(0);
+}
