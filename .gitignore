@@ -2,10 +2,9 @@
 
 *.DS_Store
 Thumbs.db
-*.sw?
 .#*
 *#
-*~
+*.un~
 *.sublime-*
 
 # Build Artifacts
@@ -30,9 +29,7 @@ dependency-reduced-pom.xml
 
 # vim
 
-*.swp
-*.swo
-.sw*
+*.sw*
 
 # nodejs
 
